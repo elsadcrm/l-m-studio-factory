@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AtelierRouteImport } from './routes/atelier'
+import { Route as DiffusionRouteImport } from './routes/diffusion'
+import { Route as GoodiesRouteImport } from './routes/goodies'
+import { Route as KitsRouteImport } from './routes/kits'
+import { Route as PapeterieRouteImport } from './routes/papeterie'
+import { Route as PatternsRouteImport } from './routes/patterns'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtelierRoute = AtelierRouteImport.update({
+  id: '/atelier',
+  path: '/atelier',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiffusionRoute = DiffusionRouteImport.update({
+  id: '/diffusion',
+  path: '/diffusion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoodiesRoute = GoodiesRouteImport.update({
+  id: '/goodies',
+  path: '/goodies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitsRoute = KitsRouteImport.update({
+  id: '/kits',
+  path: '/kits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PapeterieRoute = PapeterieRouteImport.update({
+  id: '/papeterie',
+  path: '/papeterie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PatternsRoute = PatternsRouteImport.update({
+  id: '/patterns',
+  path: '/patterns',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
+  '/diffusion': typeof DiffusionRoute
+  '/goodies': typeof GoodiesRoute
+  '/kits': typeof KitsRoute
+  '/papeterie': typeof PapeterieRoute
+  '/patterns': typeof PatternsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
+  '/diffusion': typeof DiffusionRoute
+  '/goodies': typeof GoodiesRoute
+  '/kits': typeof KitsRoute
+  '/papeterie': typeof PapeterieRoute
+  '/patterns': typeof PatternsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
+  '/diffusion': typeof DiffusionRoute
+  '/goodies': typeof GoodiesRoute
+  '/kits': typeof KitsRoute
+  '/papeterie': typeof PapeterieRoute
+  '/patterns': typeof PatternsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/atelier'
+    | '/diffusion'
+    | '/goodies'
+    | '/kits'
+    | '/papeterie'
+    | '/patterns'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/atelier'
+    | '/diffusion'
+    | '/goodies'
+    | '/kits'
+    | '/papeterie'
+    | '/patterns'
+  id:
+    | '__root__'
+    | '/'
+    | '/atelier'
+    | '/diffusion'
+    | '/goodies'
+    | '/kits'
+    | '/papeterie'
+    | '/patterns'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AtelierRoute: typeof AtelierRoute
+  DiffusionRoute: typeof DiffusionRoute
+  GoodiesRoute: typeof GoodiesRoute
+  KitsRoute: typeof KitsRoute
+  PapeterieRoute: typeof PapeterieRoute
+  PatternsRoute: typeof PatternsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atelier': {
+      id: '/atelier'
+      path: '/atelier'
+      fullPath: '/atelier'
+      preLoaderRoute: typeof AtelierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diffusion': {
+      id: '/diffusion'
+      path: '/diffusion'
+      fullPath: '/diffusion'
+      preLoaderRoute: typeof DiffusionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goodies': {
+      id: '/goodies'
+      path: '/goodies'
+      fullPath: '/goodies'
+      preLoaderRoute: typeof GoodiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kits': {
+      id: '/kits'
+      path: '/kits'
+      fullPath: '/kits'
+      preLoaderRoute: typeof KitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/papeterie': {
+      id: '/papeterie'
+      path: '/papeterie'
+      fullPath: '/papeterie'
+      preLoaderRoute: typeof PapeterieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patterns': {
+      id: '/patterns'
+      path: '/patterns'
+      fullPath: '/patterns'
+      preLoaderRoute: typeof PatternsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AtelierRoute: AtelierRoute,
+  DiffusionRoute: DiffusionRoute,
+  GoodiesRoute: GoodiesRoute,
+  KitsRoute: KitsRoute,
+  PapeterieRoute: PapeterieRoute,
+  PatternsRoute: PatternsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
