@@ -27,7 +27,7 @@ describe("résolution effective", () => {
 
 describe("couverture", () => {
   it("n'est jamais conforme avec un profil non vérifié", () => {
-    const c = coverTemplate({ format: { kind: "a4", widthMm: 210, heightMm: 297 }, pageCount: 40 }, PRINTERS[0], "blanc");
+    const c = coverTemplate({ format: { kind: "a4", widthMm: 210, heightMm: 297 }, pageCount: 40 }, PRINTERS[0]!, "blanc");
     expect(c.conforme).toBe(false);
     expect(c.spineMm).toBeCloseTo(2.29, 2);
   });

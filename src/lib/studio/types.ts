@@ -80,13 +80,13 @@ export interface PageNote {
   at: number;
   kind: "commentaire" | "correction";
   text: string;
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 export interface PageEvent {
   at: number;
   action: string;
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 export interface BookPage {
@@ -97,7 +97,7 @@ export interface BookPage {
   prompt: string;
   status: PageStatus;
   versions: PageVersion[];
-  validatedVersionId?: string;
+  validatedVersionId?: string | undefined;
   notes: PageNote[];
   history: PageEvent[];
 }
