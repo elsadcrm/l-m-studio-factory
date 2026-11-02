@@ -141,8 +141,8 @@ export async function movePage(bookId: string, pageId: string, dir: -1 | 1) {
   const i = pages.findIndex((p) => p.id === pageId);
   const j = i + dir;
   if (i < 0 || j < 0 || j >= pages.length) return;
-  const a = pages[i];
-  const b = pages[j];
+  const a = pages[i]!;
+  const b = pages[j]!;
   await put("pages", { ...a, order: b.order });
   await put("pages", { ...b, order: a.order });
 }

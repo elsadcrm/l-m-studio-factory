@@ -80,7 +80,7 @@ export function coverTemplate(
   printer: PrinterProfile,
   paperId: string,
 ) {
-  const paper = printer.papers.find((p) => p.id === paperId) ?? printer.papers[0];
+  const paper = printer.papers.find((p) => p.id === paperId) ?? printer.papers[0]!;
   const spineMm = Math.round(book.pageCount * paper.mmPerPage * 100) / 100;
   const widthMm = 2 * book.format.widthMm + spineMm + 2 * printer.bleedMm;
   const heightMm = book.format.heightMm + 2 * printer.bleedMm;
